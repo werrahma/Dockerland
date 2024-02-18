@@ -17,7 +17,7 @@
 # # Start MariaDB on container startup
 # CMD ["mysqld", "--user=mysql", "--console"]
 
-FROM debian:buster
+FROM debian:bullseye
 RUN apt-get update && apt-get install -y mariadb-server
 # COPY ./tools/50-server.cnf /etc/mysql/mariadb.conf.d/
 # COPY ./tools/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
