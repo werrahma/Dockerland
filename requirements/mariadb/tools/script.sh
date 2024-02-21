@@ -1,21 +1,18 @@
 #!/bin/bash
 
-sed -i "s/127.0.0.1/0.0.0.0/" /etc/mysql/mariadb.conf.d/50-server.cnf
+# sed -i "s/127.0.0.1/0.0.0.0/" /etc/mysql/mariadb.conf.d/50-server.cnf
 
-service mysql start
+service mariadb start
 
+sleep 1
 
-echo "CREATE DATABASE IF NOT EXISTS $db_name ;"  | mysql
-echo "CREATE USER IF NOT EXISTS '$db_user'@'%' IDENTIFIED BY '$db_pwd' ;"  | mysql
-echo "GRANT ALL PRIVILEGES ON werrahma.* TO '$db_user'@'%' ;"  | mysql
-# echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '1234' ;"  | mysql
+# echo "CREATE DATABASE IF NOT EXISTS $sdb1_name ;"  | mysql
+mariadb -e "CREATE DATABASE IF NOT EXISTS $sdb1_name ;"
+echo "CREATE USER IF NOT EXISTS $sdb1_user IDENTIFIED BY '$sdb1_pwd' ;"  | mysql
+echo "GRANT ALL PRIVILEGES ON $sdb1_name.* TO '$sdb1_user' ;"  | mysql
+# echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '12345' ;"  | mysql
 echo "FLUSH PRIVILEGES;"  | mysql
 
-service mysql stop
+service mariadb stop
 mysqld_safe
 # sleep infinity
-# exec "$@"
-
-# commands="CREATE DATABASE IF NOT EXISTS \`${newDb}\`;CREATE USER IF NOT EXISTS'${newUser}'@'${host}' IDENTIFIED BY '${newDbPassword}';GRANT USAGE ON *.* TO '${newUser}'@'${host}';GRANT ALL ON \`${newDb}\`.* TO '${newUser}'@'${host}';FLUSH PRIVILEGES;"
-
-# echo "${commands}" | /usr/bin/mysql -u root -p
