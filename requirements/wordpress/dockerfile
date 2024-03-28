@@ -6,15 +6,11 @@ RUN apt update -y
 RUN apt install php-fpm php-mysql -y
 
 WORKDIR /var/www/wordpress
-# RUN apt-get install -y php7.3-fpm php7.3-mysql tar
-# RUN apt install php-fpm php-mysql -y
 
 RUN apt install curl -y
-# RUN     curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 
 
 COPY ./tools/script.sh /
-# COPY ./tools/wp-config.php /
 
 COPY ./www.conf /etc/php/7.4/fpm/pool.d/
 
