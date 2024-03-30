@@ -16,5 +16,5 @@ mariadb -e "GRANT ALL PRIVILEGES ON $sdb1_name.* TO '$sdb1_user' ;"
 mariadb -e "FLUSH PRIVILEGES;"
 
 service mariadb stop
-mysqld_safe
+exec mysqld_safe
 # sleep infinity 
