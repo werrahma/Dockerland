@@ -62,4 +62,4 @@ volumes:
                  device: '/home/werrahma/data/mariadb'
 networks:
         inception:
-          driver: bridge
+          driver: bridge 
