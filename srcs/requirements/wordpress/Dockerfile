@@ -12,7 +12,7 @@ RUN apt install curl -y
 
 COPY ./tools/script.sh /
 
-COPY ./www.conf /etc/php/7.4/fpm/pool.d/
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 
 RUN chmod +x /script.sh
 
