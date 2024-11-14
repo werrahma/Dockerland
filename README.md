@@ -27,24 +27,6 @@ Requirements
         Persistent storage for WordPress site files
     Docker Network: Custom Docker network to link all containers
 
-Project Structure
-
-The file structure follows a specific setup:
-
-
-├── Makefile                # Automates setup and build
-├── srcs                    # Main directory for configuration
-│   ├── docker-compose.yml  # Docker Compose configuration
-│   ├── .env                # Environment variables
-│   └── requirements        # Service requirements
-│       ├── mariadb
-│       │   └── Dockerfile  # Dockerfile for MariaDB
-│       ├── nginx
-│       │   └── Dockerfile  # Dockerfile for NGINX
-│       └── wordpress
-│           └── Dockerfile  # Dockerfile for WordPress
-
-
 Project Goals
 
 This project aims to:
